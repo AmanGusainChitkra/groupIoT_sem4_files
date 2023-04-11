@@ -16,7 +16,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "gltf-pipeline": "^4.0.2",
     "gsap": "^3.11.5",
-    "three": "^0.150.1"
+    "three": "^0.150.1",
+    "three-gpu-pathtracer": "^0.0.14",
+    "three-mesh-ui": "^6.5.4",
+    "troika-three-text": "^0.47.1"
   }
 }
