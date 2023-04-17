@@ -17,6 +17,7 @@ const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);    //
 
 //Setting some constants
 var objects = [];
+var movableObjects3d=[];
 const boxes = [];
 const helpers = [];
 var movableObjects = [10, 62, 59, 60, 61, 3, 4, 49, 14];
@@ -67,7 +68,7 @@ loadModel(function () {
         // camera.lookAt(dragControls.target);
     })
 
-    var dragControls = new DragControls(objects, camera, canvas);   //drag Controls
+    var dragControls = new DragControls(movableObjects3d, camera, canvas);   //drag Controls
     console.log(objects)
     dragControls.addEventListener('dragstart', () => {
         orbitControls.enabled = false;
@@ -123,6 +124,13 @@ renderer.setSize(width, height);
 // create an AxesHelper instance with a size of 5
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
+//***************************This is adjustements section********************* */
+
+//adjustements
+camera.position.z = 7;
+camera.position.y = 4;
+// camera.
+
 
 // loader
 function loadModel(callback) {
@@ -181,6 +189,7 @@ function addMovableObjects() {
     movableObjects.forEach((item) => {
         objects[item].position.x += getRandomInt(-30, 30);
         objects[item].position.y += getRandomInt(-30, 30);
+        movableObjects3d.push(objects[item]);
     })
 }
 function getRandomInt(min, max) {
@@ -235,12 +244,6 @@ function topCameraPosition() {
 
 
 
-//***************************This is adjustements section********************* */
-
-//adjustements
-camera.position.z = 7;
-camera.position.y = 4;
-// camera.
 
 function animate() {
     requestAnimationFrame(animate);
